@@ -1,4 +1,10 @@
 <tui-app-bar>
-  <button icon="tuiIconAlignJustify" title="Menu" tuiIconButton tuiSlot="left"></button>
-  <label tuiLabel="(Listos para ganar)" class="reversed"> LPG </label>
+  <button icon="tuiIconMenuLarge" title="Menu" tuiIconButton tuiSlot="left"></button>
+  <label class="reversed" tuiLabel="(Listos para ganar)"> LPG </label>
+  <button
+    (m-click)="mAuthService.logout()"
+    icon="tuiIconLogOutLarge"
+    title="Logout"
+    tuiIconButton
+    tuiSlot="right"></button>
 </tui-app-bar>

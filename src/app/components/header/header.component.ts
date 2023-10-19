@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { MAuthService } from '@mercadona/core/auth';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -8,6 +10,8 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
   /**
    * Class constructor
+   *
+   * @param {MAuthService} mAuthService Inject service auth
    */
-  constructor() {}
+  constructor(public mAuthService: MAuthService) {}
 }
