@@ -18,7 +18,17 @@ const localEnvironment = {
   telemetryConfig: {
     url: 'https://otelcol-front.dev.gcp.mercadona.com/v1/traces',
     traces: MTraces.DEFAULT
-  } as MTelemetryConfig
+  } as MTelemetryConfig,
+  configAuth: {
+    clientId: ' 159f86ac-a67b-44bd-b740-33543979c193',
+    authority: 'https://fed.itgmercadona.com/adfs',
+    knownAuthorities: ['https://fed.itgmercadona.com/adfs'],
+    resource: 'api://mercadona/audience/services/app7hackathon/v1',
+    scope: ['openid'],
+    postLogoutRedirectUri: 'https://localhost:4200',
+    redirectUri: 'https://localhost:4200',
+    authOnAppStart: true
+  }
 };
 
 const envInstance = new MEnviroment('yourAppName', localEnvironment);

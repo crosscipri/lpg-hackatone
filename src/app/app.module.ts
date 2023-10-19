@@ -10,6 +10,7 @@ import { TuiRootModule } from '@taiga-ui/core';
 import { MErrorHandlerModule } from '@mercadona/core-ui/error-handler';
 import { MPageErrorModule } from '@mercadona/core-ui/page-error';
 import { MPageNotFoundModule } from '@mercadona/core-ui/page-not-found';
+import { MAuthModule } from '@mercadona/core/auth';
 import { MLoggerModule } from '@mercadona/core/logger';
 import { MPlatformModule } from '@mercadona/core/platform';
 import { MTranslateModule } from '@mercadona/core/translate';
@@ -36,8 +37,17 @@ import { AppComponent } from './app.component';
     MPageErrorModule.forRoot(),
     TuiRootModule,
     FormsModule,
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
+    MAuthModule.forRoot({
+      clientId: environment.configAuth.clientId,
+      authority: environment.configAuth.authority,
+      knownAuthorities: environment.configAuth.knownAuthorities,
+      resource: environment.configAuth.resource,
+      scope: environment.configAuth.scope,
+      postLogoutRedirectUri: environment.configAuth.postLogoutRedirectUri,
+      redirectUri: environment.configAuth.redirectUri,
+      authOnAppStart: environment.configAuth.authOnAppStart
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
