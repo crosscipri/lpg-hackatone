@@ -1,11 +1,12 @@
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { HeaderModule } from '@components/header/header.module';
 import { APP_CONFIG } from '@constants';
 import { environment } from '@environment';
-import { TuiRootModule } from '@taiga-ui/core';
+import { TuiRootModule, TuiSvgModule } from '@taiga-ui/core';
 
 import { MErrorHandlerModule } from '@mercadona/core-ui/error-handler';
 import { MPageErrorModule } from '@mercadona/core-ui/page-error';
@@ -38,6 +39,8 @@ import { AppComponent } from './app.component';
     TuiRootModule,
     FormsModule,
     ReactiveFormsModule,
+    HeaderModule,
+    TuiSvgModule,
     MAuthModule.forRoot({
       clientId: environment.configAuth.clientId,
       authority: environment.configAuth.authority,
@@ -50,7 +53,12 @@ import { AppComponent } from './app.component';
       forceAuthentication: environment.configAuth.forceAuthentication
     })
   ],
-  providers: [],
+  providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: 'es'
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
