@@ -1,10 +1,20 @@
-<tui-app-bar>
-  <button icon="tuiIconMenuLarge" title="Menu" tuiIconButton tuiSlot="left"></button>
-  <label class="reversed" tuiLabel="(Listos para ganar)"> LPG </label>
-  <button
-    (m-click)="mAuthService.logout()"
-    icon="tuiIconLogOutLarge"
-    title="Logout"
-    tuiIconButton
-    tuiSlot="right"></button>
-</tui-app-bar>
+<tui-root>
+  <tui-app-bar>
+    <button
+      (m-click)="toggleButton(true)"
+      (tuiActiveZoneChange)="toggleButton($event)"
+      icon="tuiIconMenuLarge"
+      title="Menu"
+      tuiIconButton
+      tuiSlot="left">
+      <app-sidebar [opened]="opened"></app-sidebar>
+    </button>
+    <label class="reversed" tuiLabel="(Listos para ganar)"> LPG </label>
+    <button
+      (m-click)="mAuthService.logout()"
+      icon="tuiIconLogOutLarge"
+      title="Logout"
+      tuiIconButton
+      tuiSlot="right"></button>
+  </tui-app-bar>
+</tui-root>
