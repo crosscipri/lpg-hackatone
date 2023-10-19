@@ -46,7 +46,8 @@ import { AppComponent } from './app.component';
       scope: environment.configAuth.scope,
       postLogoutRedirectUri: environment.configAuth.postLogoutRedirectUri,
       redirectUri: environment.configAuth.redirectUri,
-      authOnAppStart: environment.configAuth.authOnAppStart
+      authOnAppStart: environment.configAuth.authOnAppStart,
+      forceAuthentication: environment.configAuth.forceAuthentication
     })
   ],
   providers: [],

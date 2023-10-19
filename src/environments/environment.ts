@@ -20,14 +20,15 @@ const localEnvironment = {
     traces: MTraces.DEFAULT
   } as MTelemetryConfig,
   configAuth: {
-    clientId: ' 159f86ac-a67b-44bd-b740-33543979c193',
+    clientId: '159f86ac-a67b-44bd-b740-33543979c193',
     authority: 'https://fed.itgmercadona.com/adfs',
     knownAuthorities: ['https://fed.itgmercadona.com/adfs'],
     resource: 'api://mercadona/audience/services/app7hackathon/v1',
     scope: ['openid'],
-    postLogoutRedirectUri: 'https://localhost:4200',
-    redirectUri: 'https://localhost:4200',
-    authOnAppStart: true
+    postLogoutRedirectUri: 'http://localhost:4200',
+    redirectUri: 'http://localhost:4200',
+    authOnAppStart: true,
+    forceAuthentication: true
   }
 };
 
