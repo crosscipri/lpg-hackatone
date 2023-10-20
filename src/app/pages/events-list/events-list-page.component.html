@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="tui-row">
+    <div class="tui-col_md-4 card" *ngFor="let event of listEvents; trackBy: trackByEvent">
+      <a href="http://ng-web-apis.github.io/" rel="noreferrer" size="l" target="_blank" tuiIsland [hoverable]="true">
+        <div class="tui-island__content">
+          <figure class="tui-island__figure">
+            <div class="some-figure"></div>
+          </figure>
+          <div>
+            <h3 class="tui-island__title">{{ event.title }}</h3>
+            <p class="tui-island__paragraph">
+              {{ event.description }}
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
