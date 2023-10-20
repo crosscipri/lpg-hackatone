@@ -14,10 +14,6 @@ header {
     color: #000000;
   }
 }
-tui-svg,
-[tuiSvg] {
-  padding-right: 2rem;
-}
 
 .logo {
   display: block;
@@ -34,4 +30,8 @@ tui-svg,
   list-style-type: none;
   display: flex;
   flex-direction: row;
+}
+
+button[tuiWrapper] {
+  background-color: white;
 }

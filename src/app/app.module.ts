@@ -6,7 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderModule } from '@components/header/header.module';
 import { APP_CONFIG } from '@constants';
 import { environment } from '@environment';
-import { TuiRootModule, TuiSvgModule } from '@taiga-ui/core';
+import { TUI_SANITIZER, TuiRootModule, TuiSvgModule, tuiSvgOptionsProvider } from '@taiga-ui/core';
+import { NgDompurifySanitizer } from '@tinkoff/ng-dompurify';
 
 import { MErrorHandlerModule } from '@mercadona/core-ui/error-handler';
 import { MPageErrorModule } from '@mercadona/core-ui/page-error';
@@ -54,6 +55,22 @@ import { AppComponent } from './app.component';
     })
   ],
   providers: [
+    // A workaround because StackBlitz does not support assets
+    tuiSvgOptionsProvider({
+      path: 'https://taiga-ui.dev/assets/taiga-ui/icons'
+    }),
+    /**
+     * If you use unsafe icons or TuiEditor in your app
+     *
+     * Take a look at: https://github.com/taiga-family/ng-dompurify
+     *
+     * This library implements DOMPurify as Angular Sanitizer or Pipe.
+     * It delegates sanitizing to DOMPurify and supports the same configuration.
+     */
+    {
+      provide: TUI_SANITIZER,
+      useClass: NgDompurifySanitizer
+    },
     {
       provide: LOCALE_ID,
       useValue: 'es'
